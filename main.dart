@@ -39,7 +39,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       style: optionStyle,
     ),
     Text(
-      'Activity',
+      'Shop',
       style: optionStyle,
     ),
     Text(
@@ -63,9 +63,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Image.asset('images/camera.png', height: 35),
                 Padding(
-                  padding: const EdgeInsets.only(left: 8.0, top: 8.0),
+                  padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
                     'images/title.png',
                     fit: BoxFit.cover,
@@ -74,7 +73,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ],
             ),
-            Image.asset('images/message.png', height: 35),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: Image.asset('images/heart.png', height: 35),
+                ),
+                Image.asset('images/message.png', height: 35),
+              ],
+            ),
           ],
         ),
         backgroundColor: Colors.white,
@@ -113,10 +120,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(
-              AssetImage('images/heart.png'),
+              AssetImage('images/shop.png'),
+              size: 28.0,
+              color: Colors.black54,
             ),
             activeIcon: ImageIcon(
-              AssetImage('images/heart_active.png'),
+              AssetImage('images/shop_active.png'),
+              size: 28.0,
             ),
             title: Text('Activity'),
           ),
@@ -601,26 +611,23 @@ Widget Post(hasStory, numOfUser, name, location, numOfLikes, postText,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 8.0, left: 8.0),
-            child: Container(
-              child: Row(
-                children: <Widget>[
-                  CircleAvatar(
-                    radius: 15,
-                    backgroundImage: AssetImage('images/profilepicture.png'),
+            child: Row(
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 15,
+                  backgroundImage: AssetImage('images/profilepicture.png'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(
+                    'Add a comment...',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: Text(
-                      'Add a comment...',
-                      style: TextStyle(color: Colors.grey, fontSize: 16),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          Container(
-              child: Row(
+          Row(
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(right: 8.0),
@@ -641,7 +648,7 @@ Widget Post(hasStory, numOfUser, name, location, numOfLikes, postText,
                 child: Icon(Icons.add_circle_outline, color: Colors.grey),
               )
             ],
-          ))
+          )
         ],
       ),
       Padding(
